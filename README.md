@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+![unilist_logo](https://user-images.githubusercontent.com/8869516/130776081-a26353dd-8e56-477d-87fc-365f56c78c26.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+# University List App
 
 ## Available Scripts
 
