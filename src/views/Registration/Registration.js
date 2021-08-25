@@ -122,7 +122,6 @@ const TitleSection = styled.div`
 const Registration = () => {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
-    const [birthdate, setBirthdate] = useState(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [cancel, setCancel] = useState(false);

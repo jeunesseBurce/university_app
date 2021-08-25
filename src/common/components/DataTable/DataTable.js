@@ -74,6 +74,8 @@ const DataTable = ({ columns, rows }) => {
                             let link = item;
                             web_pages.push(<a rel="noopener noreferrer" href={link} target="_blank"> {link} <br /></a> );
                             value = web_pages;
+
+                            return value;
                         })
                     }
 

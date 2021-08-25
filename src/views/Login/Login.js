@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 
@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import unilist_logo from '../../assets/unilist_logo.png';
 
 import { Redirect, Link } from "react-router-dom";
-import { isLoggedIn, login, setLoggedIn } from '../../services/api';
+import { login } from '../../services/api';
 
 const useStyles = makeStyles((theme) => ({
     backdrop: {
@@ -122,12 +122,6 @@ const Caption = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-    text-decoration: none;
-    color: #00B2FF;
-    font-weight: bold;
-`;
-
-const StyledForgotPassword = styled(Link)`
     text-decoration: none;
     color: #00B2FF;
     font-weight: bold;
