@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 
@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import unilist_logo from '../../assets/unilist_logo.png';
 
 import { Redirect, Link } from "react-router-dom";
+import { isLoggedIn, login, setLoggedIn } from '../../services/api';
 
 const useStyles = makeStyles((theme) => ({
     backdrop: {
@@ -136,11 +137,11 @@ const StyledForgotPassword = styled(Link)`
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [token, setToken] = useState(false);
     const [message, setMessage] = useState('');
     const [error, setError] = useState(false);
+    const [status, setStatus] = useState(false);
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleClose = () => {
       setOpen(false);
@@ -159,14 +160,22 @@ const Login = () => {
         setPassword(event.target.value);
     }
     
-    const submitLogin = async (event) => {
+    const submitLogin = (event) => {
         handleToggle();
         let data = {
             email: email,
             password: password
         }
-    
-        
+
+        if (data.email && data.password) {
+            setTimeout(login(data), 3000);
+            setStatus(localStorage.getItem("isLoggedIn"));
+        }
+    }
+
+
+    if (status) {
+        return <Redirect to="/dashboard" />
     }
 
     return (
