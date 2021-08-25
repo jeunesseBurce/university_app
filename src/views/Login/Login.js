@@ -113,7 +113,6 @@ const TitleSection = styled.div`
     margin: 15px;
     padding: 10px;
     width: 100%;
-    display: inline-grid;
     flex-direction: row;
 `
 
