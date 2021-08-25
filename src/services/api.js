@@ -1,3 +1,5 @@
+import config from '../constants/serverConfig';
+
 const setLoggedIn = isLoggedIn => localStorage.setItem('isLoggedIn', isLoggedIn);
 const clearLoggedIn = () => localStorage.removeItem('isLoggedIn');
 const setEmail = email => localStorage.setItem('email', email);
@@ -22,9 +24,21 @@ const logout = () => {
     clearEmail();
 }
 
+const getAllUniversities = async () => {
+    const response = await fetch('http://universities.hipolabs.com/' + 'search', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    });
+
+    return response.json(); 
+}
+
 export {
     isLoggedIn,
     login,
     logout,
-    setLoggedIn
+    setLoggedIn,
+    getAllUniversities
 }
