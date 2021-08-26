@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 
@@ -147,10 +147,14 @@ const Login = () => {
     const handleEmailChange = (event) => {
         localStorage.setItem('email', event.target.value);
         setEmail(event.target.value);
+        setError(false);
+        setMessage('');
     }
     
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
+        setError(false);
+        setMessage('');
     }
     
     const submitLogin = (event) => {
@@ -163,6 +167,11 @@ const Login = () => {
         if (data.email && data.password) {
             setTimeout(login(data), 3000);
             setStatus(localStorage.getItem("isLoggedIn"));
+            handleClose();
+        } else {
+            setError(true);
+            setMessage("Invalid credentials");
+            handleClose();
         }
     }
 
