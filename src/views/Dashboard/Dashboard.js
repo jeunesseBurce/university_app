@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../../common/components/Header/Header';
-import { getAllUniversities, setLoggedIn } from '../../services/api';
+
+import { getAllUniversities, setLoggedIn, searchByCountry, searchByName } from '../../services/api';
 import DataTable from '../../common/components/DataTable/DataTable';
 import styled from 'styled-components';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -25,6 +25,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import RoomIcon from '@material-ui/icons/Room';
 import unilist from '../../assets/unilist.png';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
 
 import { Redirect } from "react-router-dom";
 
@@ -82,8 +86,36 @@ const Title = styled.div`
     text-align: left;
 `;
 
+const RightPanel = styled.div`
+    justify-content: center;
+    display: flex;
+    margin: 10px;
+`;
+
 const Results = styled.div`
   margin: 30px;
+`;
+
+const StyledSelect = styled(Select)`
+    width: 120px;
+    height: 50px;
+    border-radius: 0px;
+`;
+
+const LabelSearch = styled.div`
+    color: #FFFFFF;
+    background-color: #0d4c84;
+    text-align: center;
+    padding: 15px;
+    height: 50px;
+    font-weight: bold;
+`;
+
+const StyledTextField = styled(TextField)`
+   > div {
+       height: 50px;
+       border-radius: 0px;
+   }
 `;
 
 function createAlertData(name, country, websites) {
@@ -101,6 +133,16 @@ const Dashboard = (props) => {
     const [loggedOut, setLoggedOut] = useState(false);
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [searchKey, setSearchKey] = useState('');
+    const [searchBy, setSearchBy] = useState('');
+
+    const handleChangeSelect = (event) => {
+        setSearchBy(event.target.value);
+    }
+
+    const handleChangeInput = (event) => {
+        setSearchKey(event.target.value);
+    }
   
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
@@ -136,6 +178,43 @@ const Dashboard = (props) => {
 
         setUniversityData(universityRows);
     }, [universities]);
+
+    useEffect(() => {      
+        let universityRows = [];
+
+        if (searchBy === 'name') {
+            let searchData = {
+                name: searchKey
+            }
+            searchByName(searchData).then((data) => {
+
+
+                data?.map((item, index) => {
+                    let tempData = createAlertData(item.name, item.country, item.web_pages);
+                    universityRows.push(tempData);
+                });
+
+                console.log(universityRows);
+
+                setUniversityData(universityRows);
+            })
+        } else if (searchBy === 'country') {
+            let searchData = {
+                country: searchKey
+            }
+            searchByCountry(searchData).then((data) => {
+
+                data?.map((item, index) => {
+                    let tempData = createAlertData(item.name, item.country, item.web_pages);
+                    universityRows.push(tempData);
+                });
+
+                console.log(universityRows);
+
+                setUniversityData(universityRows);
+            })
+        }
+    }, [searchBy, searchKey]);
 
     if (loggedOut) {
         return <Redirect to="/" />
@@ -229,11 +308,29 @@ const Dashboard = (props) => {
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
+        <Title> UNIVERSITIES AROUND THE WORLD </Title>
+           
         <Results>
-        {universities ? 
-         <>
-            <Title> UNIVERSITIES AROUND THE WORLD </Title>
-            <DataTable rows={universityData} columns={columns} />
+        {universities ?
+        <>
+            <RightPanel>
+            <LabelSearch> SEARCH BY:  </LabelSearch>
+            <FormControl variant="outlined" className={classes.formControl}>
+            <StyledSelect
+                labelId="select-search"
+                id="select-search"
+                value={searchBy}
+                onChange={handleChangeSelect}
+            >
+                <MenuItem value="">
+                </MenuItem>
+                <MenuItem value="name">Name</MenuItem>
+                <MenuItem value="country">Country</MenuItem>
+            </StyledSelect>
+            </FormControl>
+            <StyledTextField id="searchKey" variant="outlined" value={searchKey} onChange={handleChangeInput} placeholder="Search..." />
+            </RightPanel>
+            <DataTable rows={universityData} columns={columns} orderColumn="name"/>
         </>
         : <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
              <CircularProgress color="inherit" />

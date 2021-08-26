@@ -35,10 +35,44 @@ const getAllUniversities = async () => {
     return response.json(); 
 }
 
+const searchByName = async (params) => {
+    let searchParams = {};
+    let { name } = params;
+    if (name) searchParams.name = name;
+
+    const response = await fetch('http://universities.hipolabs.com/' + 'search?' 
+    + new URLSearchParams(searchParams), {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    });
+
+    return response.json(); 
+}
+
+const searchByCountry = async (params) => {
+    let searchParams = {};
+    let { country } = params;
+    if (country) searchParams.country = country;
+
+    const response = await fetch('http://universities.hipolabs.com/' + 'search?'
+    + new URLSearchParams(searchParams), {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    });
+
+    return response.json(); 
+}
+
 export {
     isLoggedIn,
     login,
     logout,
     setLoggedIn,
-    getAllUniversities
+    getAllUniversities,
+    searchByName,
+    searchByCountry
 }
