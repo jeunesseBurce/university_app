@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 import Login from './views/Login';
 import Dashboard from './views/Dashboard';
 import Registration from './views/Registration';
+import NotFound from './views/NotFound';
 import { isLoggedIn } from '../src/services/api';
 
 function App() {
@@ -43,6 +44,8 @@ function App() {
         <Route exact path="/registration">
           <Registration />
         </Route>
+
+        <Route component={NotFound} />
 
       </Switch>
   </Router>

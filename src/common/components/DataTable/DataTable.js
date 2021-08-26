@@ -8,14 +8,27 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import LinkIcon from '@material-ui/icons/Link';
+import styled from 'styled-components';
+
+
+const StyledLink = styled.a`
+  color: #46bdf5;
+  text-decoration: none;
+
+  :hover {
+    text-decoration: underline;
+  }
+
+`;
 
 const useStyles = makeStyles({
   root: {
-    width: '100%',
+    width: '60%',
     margin: '20'
   },
   container: {
-    maxHeight: 770,
+    maxHeight: 900,
   },
 });
 
@@ -72,7 +85,7 @@ const DataTable = ({ columns, rows }) => {
                         let web_pages = [];
                         weblinks?.map((item) => {
                             let link = item;
-                            web_pages.push(<a rel="noopener noreferrer" href={link} target="_blank"> {link} <br /></a> );
+                            web_pages.push(<StyledLink rel="noopener noreferrer" href={link} target="_blank"> <LinkIcon /> {link} <br /></StyledLink> );
                             value = web_pages;
 
                             return value;
