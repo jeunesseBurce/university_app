@@ -13,7 +13,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 # Login User Interface 
 
-<img width="2556" alt="Screen Shot 2021-08-26 at 9 36 46 PM" src="https://user-images.githubusercontent.com/8869516/130974125-4dfa770a-7f2b-4d11-8999-8ef6cf5c9b62.png">
+<img width="2552" alt="Screen Shot 2021-08-28 at 7 10 23 AM" src="https://user-images.githubusercontent.com/8869516/131197025-f030eb33-557f-4c04-a4e5-60bac3abb555.png">
+
 
 Login Credentials: 
  - Email: Any Valid Email
@@ -22,7 +23,8 @@ Login Credentials:
 Both are required to logged in the app. 
 
 # Registration User Interface 
-<img width="2559" alt="Screen Shot 2021-08-26 at 9 37 04 PM" src="https://user-images.githubusercontent.com/8869516/130974162-d081b058-b8f0-4c6b-a4b4-32c2a92ddbb8.png">
+<img width="2557" alt="Screen Shot 2021-08-28 at 7 10 40 AM" src="https://user-images.githubusercontent.com/8869516/131197034-ed6fa6fa-356b-4bd5-a7ad-c54d5bb57f89.png">
+
 
 
 
