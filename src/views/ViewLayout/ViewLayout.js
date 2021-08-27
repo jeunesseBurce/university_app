@@ -107,7 +107,7 @@ const ViewLayout = ({ children }) => {
           path: '/favorites'
         },
         {
-          text: 'Subscribe',
+          text: 'Subscriptions',
           icon: <SubscriptionsIcon color="primary" />,
           path: '/subscriptions'
         },
@@ -202,8 +202,10 @@ const ViewLayout = ({ children }) => {
         </Hidden>
       </nav>
 
-
-       <div> { children } </div>
+      <main className={classes.content}>
+      <div className={classes.toolbar} />
+        <div> { children } </div>
+      </main>
         
         
     </div>   

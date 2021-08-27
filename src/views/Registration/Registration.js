@@ -12,8 +12,8 @@ import isEmail from 'validator/lib/isEmail';
 
 
 const MainView = styled.div`
-    background: rgb(26,66,142);
-    background: linear-gradient(301deg, rgba(26,66,142,1) 22%, rgba(96,222,246,1) 57%);
+    background: rgb(69,96,158);
+    background: linear-gradient(313deg, rgba(69,96,158,1) 9%, rgba(32,226,179,1) 72%);
     height: 100vh;
     display: flex;
     width: 100%;
@@ -104,6 +104,13 @@ const SubTitle = styled.div`
 const Caption = styled.div`
     font-size: 15px;
     color: #000000;
+`;
+
+const TitleCaption = styled.div`
+    font-weight: bold;
+    margin: 30px 0px;
+    font-size: 25px;
+    color: #0C4C84;
 `;
 
 const StyledLink = styled(Link)`
@@ -205,7 +212,8 @@ const Registration = () => {
                 <img src={unilist_logo} width="550px" height="150px" alt="Logo" />
                 <TitleSection>
                     <Title>Welcome to</Title>
-                    <SubTitle> University List App </SubTitle>
+                    <SubTitle> University List </SubTitle>
+                    <TitleCaption> Making your next search for a university easier. </TitleCaption>
                 </TitleSection>
             </LeftPanel>
         <RightContent>

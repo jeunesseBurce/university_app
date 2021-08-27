@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     margin: '20'
   },
   container: {
-    maxHeight: 900,
+    maxHeight: 600,
   },
   visuallyHidden: {
     border: 0,

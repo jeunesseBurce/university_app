@@ -6,6 +6,7 @@ import Dashboard from './views/Dashboard';
 import Registration from './views/Registration';
 import NotFound from './views/NotFound';
 import Universities  from './views/Universities';
+import FindUniversities  from './views/FindUniversities';
 import Favorites from './views/Favorites';
 import Subscriptions from './views/Subscriptions';
 import ViewLayout from './views/ViewLayout';
@@ -35,7 +36,9 @@ function App() {
           path="/dashboard"
           render={({ location }) =>
             isLoggedIn() ? (
-              <Dashboard />
+              <ViewLayout>
+                <Dashboard />
+              </ViewLayout>
             ) : (
             <Redirect
               to={{
@@ -50,23 +53,32 @@ function App() {
           <Registration />
         </Route>
 
-        <Route component={NotFound} />
-        <ViewLayout>
         <Route path="/favorites">
-          <Favorites />
+          <ViewLayout>
+            <Favorites />
+          </ViewLayout>
         </Route>
 
         <Route path="/universities">
+        <ViewLayout>
           <Universities />
+        </ViewLayout>
         </Route>
+
+        <Route path="/find-universities">
+        <ViewLayout>
+          <FindUniversities />
+        </ViewLayout>
+        </Route>
+
 
         <Route path="/subscriptions">
+        <ViewLayout>
           <Subscriptions />
+        </ViewLayout>
         </Route>
 
-        </ViewLayout>
-        
-
+        <Route component={NotFound} />
       </Switch>
       
   </Router>

@@ -13,11 +13,13 @@
   margin: 0px 10px;
 }
 .storybook-button--secondary {
-  color: white;
-  background-color: #0d4c84;
+  color:#5fddbe;
+  background: transparent;
+  border: 1px solid #5fddbe;
   box-shadow: white;
   margin: 0px 10px;
 }
+
 .storybook-button--small {
   font-size: 12px;
   padding: 10px 16px;

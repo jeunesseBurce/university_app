@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
-
 import Button from '../../common/components/Button/Button';
 import TextField from '@material-ui/core/TextField';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -32,6 +30,10 @@ const MainView = styled.div`
     margin: 0 auto;
 `;
 
+const Wrapper = styled.div`
+ 
+`;
+
 const Container = styled.div`
     width: ${({ width }) => width};
     height: ${({ height }) => height};
@@ -40,6 +42,8 @@ const Container = styled.div`
     border-radius: 10px;
     box-shadow: 0 10px 45px rgba(0,0,0,0.3);
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 `;
 
 const Header = styled.div`
@@ -68,7 +72,7 @@ const MainContent = styled.div`
 `;
 
 const Footer = styled.div`
-    height: 200px;
+    height: 75px;
     border-top: 1px solid #ececec;
     margin-top: 10px;
     padding-top: 20px;
@@ -80,6 +84,13 @@ const Title = styled.div`
     > span {
         font-weight: 500;
     }
+`;
+
+const TitleCaption = styled.div`
+    font-weight: bold;
+    margin: 30px 0px;
+    font-size: 25px;
+    color: #45609e;
 `;
 
 const SubTitle = styled.div`
@@ -101,6 +112,8 @@ const LeftPanel = styled.div`
     border-right: 1px solid #ececec;
     padding: 70px;
     height: 305px;
+    display: flex;
+    flex-direction: column;
 `;
 
 const Section = styled.div`
@@ -182,14 +195,16 @@ const Login = () => {
 
     return (
     <MainView>
+        <Wrapper className="flex-container">
         <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
             <CircularProgress color="inherit" />
         </Backdrop>
         <LeftPanel>
-            <img src={unilist_logo} width="550px" height="150px" alt="Logo" />
+            <img src={unilist_logo} alt="Logo" class="img-class" width="550px" height="150px" />
             <TitleSection>
                 <Title>Welcome to</Title>
-                <SubTitle> University List App </SubTitle>
+                <SubTitle> University List</SubTitle>
+                <TitleCaption> Making your next search for a university easier. </TitleCaption>
             </TitleSection>
         </LeftPanel>
         <RightContent>
@@ -259,7 +274,7 @@ const Login = () => {
         </Footer>
         </Container>
         </RightContent>
-       
+       </Wrapper>
     </MainView>
     );
 };
