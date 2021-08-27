@@ -30,7 +30,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 
-import { Redirect } from "react-router-dom";
+
+import { Redirect, useHistory, useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
 const columns = [
@@ -77,6 +78,9 @@ const useStyles = makeStyles((theme) => ({
         zIndex: theme.zIndex.drawer + 1,
         color: '#fff',
     },
+    active: {
+      backgroundColor: '#F4F4F4'
+    }
 }));
 
 const Title = styled.div`
@@ -125,16 +129,46 @@ function createAlertData(name, country, websites) {
 
 const Dashboard = (props) => {
     const { window } = props;
+    const classes = useStyles();
+    const history = useHistory();
+    const location = useLocation();
     const [universities, setUniversities] = useState(null);
     const [universityData, setUniversityData] = useState(null);
-    const classes = useStyles();
     const [open, setOpen] = useState(true);
-    const user = {email: localStorage.getItem('email')};
     const [loggedOut, setLoggedOut] = useState(false);
     const theme = useTheme();
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
     const [searchKey, setSearchKey] = useState('');
     const [searchBy, setSearchBy] = useState('');
+    const user = {email: localStorage.getItem('email')};
+
+    const itemList = [
+      {
+        text: 'Dashboard',
+        icon: <DashboardIcon color="primary" />,
+        path: '/dashboard'
+      },
+      {
+        text: 'All Universities',
+        icon: <SchoolIcon color="primary" />,
+        path: '/universities'
+      },
+      {
+        text: 'Find a University',
+        icon: <RoomIcon color="primary" />,
+        path: '/find-universities'
+      },
+      {
+        text: 'Favorite Universities',
+        icon: <FavoriteIcon color="primary" />,
+        path: '/favorites'
+      },
+      {
+        text: 'Subscribe',
+        icon: <SubscriptionsIcon color="primary" />,
+        path: '/subscribe'
+      },
+    ]
 
     const handleChangeSelect = (event) => {
         setSearchBy(event.target.value);
@@ -194,8 +228,6 @@ const Dashboard = (props) => {
                     universityRows.push(tempData);
                 });
 
-                console.log(universityRows);
-
                 setUniversityData(universityRows);
             })
         } else if (searchBy === 'country') {
@@ -208,8 +240,6 @@ const Dashboard = (props) => {
                     let tempData = createAlertData(item.name, item.country, item.web_pages);
                     universityRows.push(tempData);
                 });
-
-                console.log(universityRows);
 
                 setUniversityData(universityRows);
             })
@@ -225,30 +255,20 @@ const Dashboard = (props) => {
           <div className={classes.toolbar} />
           <Divider />
           <List>
-            <ListItem button key="Dashboard">
-                <ListItemIcon> <DashboardIcon color="primary" /> </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-            </ListItem>
-
-            <ListItem button key="Find a University">
-                <ListItemIcon> <RoomIcon color="primary" /> </ListItemIcon>
-                <ListItemText primary="Find a University" />
-            </ListItem>
-
-            <ListItem button key="All Universities">
-                <ListItemIcon> <SchoolIcon color="primary" /> </ListItemIcon>
-                <ListItemText primary="All Universities" />
-            </ListItem>
-
-            <ListItem button key="Favorite Universities">
-                <ListItemIcon> <FavoriteIcon color="primary" /> </ListItemIcon>
-                <ListItemText primary="Favorite Universities" />
-            </ListItem>
-
-            <ListItem button key="Subscribe">
-                <ListItemIcon> <SubscriptionsIcon color="primary" /> </ListItemIcon>
-                <ListItemText primary="Subscribe" />
-            </ListItem>
+            {itemList.map(item => {
+              return (
+               <ListItem 
+                button 
+                key={item.text} 
+                onClick={() => history.push(item.path)}
+                className={location.pathname == item.path ? classes.active : null}
+               
+               >
+                <ListItemIcon> {item.icon} </ListItemIcon>
+               <ListItemText primary={item.text} />
+               </ListItem>
+              );
+            })}
           </List>
         </div>
     );

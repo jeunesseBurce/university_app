@@ -5,12 +5,17 @@ import Login from './views/Login';
 import Dashboard from './views/Dashboard';
 import Registration from './views/Registration';
 import NotFound from './views/NotFound';
+import Universities  from './views/Universities';
+import Favorites from './views/Favorites';
+import Subscriptions from './views/Subscriptions';
+import ViewLayout from './views/ViewLayout';
 import { isLoggedIn } from '../src/services/api';
 
 function App() {
 
   return (
     <Router>
+      
       <Switch>
         <Route exact path="/"
            render={({ location }) =>
@@ -46,8 +51,24 @@ function App() {
         </Route>
 
         <Route component={NotFound} />
+        <ViewLayout>
+        <Route path="/favorites">
+          <Favorites />
+        </Route>
+
+        <Route path="/universities">
+          <Universities />
+        </Route>
+
+        <Route path="/subscriptions">
+          <Subscriptions />
+        </Route>
+
+        </ViewLayout>
+        
 
       </Switch>
+      
   </Router>
   );
 }

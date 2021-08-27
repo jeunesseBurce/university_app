@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 const MainView = styled.div`
-    background: rgb(26,66,142);
-    background: linear-gradient(301deg, rgba(26,66,142,1) 22%, rgba(96,222,246,1) 57%);
+    background: rgb(69,96,158);
+    background: linear-gradient(313deg, rgba(69,96,158,1) 9%, rgba(32,226,179,1) 72%);
     height: 100vh;
     display: flex;
     width: 100%;
