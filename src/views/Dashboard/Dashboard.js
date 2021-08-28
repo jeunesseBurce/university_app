@@ -74,10 +74,6 @@ const Dashboard = () => {
 
       setUniversities(universityData);
     });
-
-  
-
-
 }, []); 
 
 
