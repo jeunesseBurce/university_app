@@ -11,10 +11,15 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### `yarn run lint`
+Runs the eslint script.
+
+### `yarn run storybook` 
+Runs the storybook for UI components.
+
 # Login User Interface 
 
 <img width="2560" alt="Screen Shot 2021-08-28 at 7 13 02 AM" src="https://user-images.githubusercontent.com/8869516/131197127-153e362b-0501-4707-95ab-f0fdb92c9d48.png">
-
 
 
 Login Credentials: 
