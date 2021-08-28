@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
-
-
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { PropTypes } from 'prop-types';
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { logout } from '../../services/api';
+import { isLoggedIn, logout } from '../../services/api';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -23,11 +21,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import RoomIcon from '@material-ui/icons/Room';
 import unilist from '../../assets/unilist.png';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import FormControl from '@material-ui/core/FormControl';
-
+import Button from '../../common/components/Button/Button';
 
 import { Redirect, useHistory, useLocation } from "react-router-dom";
 
@@ -169,6 +163,11 @@ const ViewLayout = ({ children }) => {
           <div>
             <img src={unilist} width="250px" height="70px" alt="Logo"/>
           </div>
+          <div>
+            {isLoggedIn() ? 
+              <Button size="small" onClick={handleLogout} label="Log out" />
+            : null}
+          </div>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
@@ -214,5 +213,10 @@ const ViewLayout = ({ children }) => {
 
 
 };
+
+ViewLayout.propTypes = {
+  children: PropTypes.element
+}
+
 
 export default ViewLayout;

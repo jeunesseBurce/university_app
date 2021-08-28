@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -129,6 +130,14 @@ function AdvancedTableHead(props) {
   )
 }
 
+AdvancedTableHead.propTypes = {
+  classes: PropTypes.node,
+  order: PropTypes.string,
+  orderBy: PropTypes.string,
+  onRequestSort: PropTypes.func,
+  columns: PropTypes.array,
+}
+
 const DataTable = ({ columns, rows, orderColumn }) => {
   const classes = useStyles();
   const [page, setPage] = useState(0);
@@ -166,8 +175,7 @@ const DataTable = ({ columns, rows, orderColumn }) => {
           <TableBody>
           {stableSort(rows, getComparator(order, orderBy))
              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-             .map((row, index) => {
-              const labelId = `advanced-table-checkbox-${index}`;
+             .map((row) => {
 
               return (
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
@@ -209,6 +217,12 @@ const DataTable = ({ columns, rows, orderColumn }) => {
       />
     </Paper>
   );
+}
+
+DataTable.propTypes = {
+  columns: PropTypes.array,
+  rows: PropTypes.array,
+  orderColumn: PropTypes.string
 }
 
 export default DataTable;

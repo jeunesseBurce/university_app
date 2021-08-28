@@ -62,7 +62,7 @@ const Subscriptions = () => {
         let universityRows = [];
         let num = 0;
 
-        universities?.map((item, index) => {
+        universities?.map((item) => {
             num += 1;
             let tempData = createTableData(item.name, item.country, item.web_pages);
             universityRows.push(tempData);

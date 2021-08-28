@@ -106,13 +106,6 @@ const Caption = styled.div`
     color: #000000;
 `;
 
-const TitleCaption = styled.div`
-    font-weight: bold;
-    margin: 30px 0px;
-    font-size: 25px;
-    color: #0C4C84;
-`;
-
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: #00B2FF;
@@ -132,10 +125,8 @@ const Registration = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [cancel, setCancel] = useState(false);
-    const [registered, setRegistered] = useState(false);
     const [open, setOpen] = useState(false);
     const [snackMessage, setSnackMessage] = useState('');
-
     const [msgFirstname, setMsgFirstname] = useState('');
     const [msgLastname, setMsgLastname] = useState('');
     const [msgEmail, setMsgEmail] = useState('');
@@ -151,13 +142,6 @@ const Registration = () => {
     }
 
     const handleSignUp = () => {
-        let data = {
-            firstName: firstname,
-            lastName: lastname,
-            email: email,
-            password: password
-        }
-
         if (email === '' || isEmail(email) === false)  {
             setMsgEmail('Please provide a valid email.');
             setErrorEmail(true);
@@ -190,7 +174,9 @@ const Registration = () => {
 
 
         if (isEmail(email) === true && email && password && firstname && lastname) {
-            setRegistered(true);
+            localStorage.setItem('email', email);
+            localStorage.setItem('firstname', firstname);
+            localStorage.setItem('lastname', lastname);
         }
 
     }
@@ -213,7 +199,6 @@ const Registration = () => {
                 <TitleSection>
                     <Title>Welcome to</Title>
                     <SubTitle> University List </SubTitle>
-                    <TitleCaption> Making your next search for a university easier. </TitleCaption>
                 </TitleSection>
             </LeftPanel>
         <RightContent>

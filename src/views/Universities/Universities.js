@@ -1,6 +1,6 @@
 import React,  { useEffect, useState }  from 'react';
 
-import { getAllUniversities, setLoggedIn, searchByCountry, searchByName } from '../../services/api';
+import { getAllUniversities, searchByCountry, searchByName } from '../../services/api';
 import DataTable from '../../common/components/DataTable/DataTable';
 import styled from 'styled-components';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -98,7 +98,6 @@ const Universities = () => {
     const [universities, setUniversities] = useState(null);
     const [universityData, setUniversityData] = useState(null);
     const [open, setOpen] = useState(true);
-    const [loggedOut, setLoggedOut] = useState(false);
     const [searchKey, setSearchKey] = useState('');
     const [searchBy, setSearchBy] = useState('');
     const [numUniversities, setNumUniversities] = useState(0);
@@ -119,25 +118,22 @@ const Universities = () => {
 
     const handleChangeSelect = (event) => {
         setSearchBy(event.target.value);
-    }
+    };
 
     const handleChangeInput = (event) => {
         setSearchKey(event.target.value);
-    }
+    };
 
     const handleClose = () => {
         setOpen(false);
-      };
-  
-    const handleToggle = () => {
-        setOpen(!open);
     };
+  
 
     const handleEmailChange = (event) => {
         setErrorEmail(false);
         setErrorMsg('');
         setInputEmail(event.target.value);
-    }
+    };
 
     const handleSubscribe = () => {
         if (inputEmail === '' || isEmail(inputEmail) === false) {
@@ -147,9 +143,9 @@ const Universities = () => {
             localStorage.setItem('universities', JSON.stringify(universities)); 
             handleCloseModal();
         }
-    }
+    };
 
-      useEffect(() => {
+    useEffect(() => {
         getAllUniversities().then((data) => {
             setUniversities(data);
         });
@@ -159,7 +155,7 @@ const Universities = () => {
         let universityRows = [];
         let num = 0;
 
-        universities?.map((item, index) => {
+        universities?.map((item) => {
             num += 1;
             let tempData = createTableData(item.name, item.country, item.web_pages);
             universityRows.push(tempData);

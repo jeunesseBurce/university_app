@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../common/components/Button/Button';
 import TextField from '@material-ui/core/TextField';
@@ -86,13 +86,6 @@ const Title = styled.div`
     }
 `;
 
-const TitleCaption = styled.div`
-    font-weight: bold;
-    margin: 30px 0px;
-    font-size: 25px;
-    color: #45609e;
-`;
-
 const SubTitle = styled.div`
     font-size: 50px;
     color: #FFFFFF;
@@ -170,7 +163,7 @@ const Login = () => {
         setMessage('');
     }
     
-    const submitLogin = (event) => {
+    const submitLogin = () => {
         handleToggle();
         let data = {
             email: email,
@@ -200,11 +193,10 @@ const Login = () => {
             <CircularProgress color="inherit" />
         </Backdrop>
         <LeftPanel>
-            <img src={unilist_logo} alt="Logo" class="img-class" width="550px" height="150px" />
+            <img src={unilist_logo} alt="Logo" className="img-class" width="550px" height="150px" />
             <TitleSection>
                 <Title>Welcome to</Title>
                 <SubTitle> University List</SubTitle>
-                <TitleCaption> Making your next search for a university easier. </TitleCaption>
             </TitleSection>
         </LeftPanel>
         <RightContent>
@@ -249,7 +241,7 @@ const Login = () => {
                 />                       
             </Section>
             <Section>
-                <Caption> Don't have an account? <StyledLink to="/registration"> Sign up here. </StyledLink> </Caption>     
+                <Caption> Don&apos;t have an account? <StyledLink to="/registration"> Sign up here. </StyledLink> </Caption>     
             </Section>
         </MainContent>
 

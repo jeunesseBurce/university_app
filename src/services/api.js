@@ -1,5 +1,3 @@
-import config from '../constants/serverConfig';
-
 const setLoggedIn = isLoggedIn => localStorage.setItem('isLoggedIn', isLoggedIn);
 const clearLoggedIn = () => localStorage.removeItem('isLoggedIn');
 const setEmail = email => localStorage.setItem('email', email);
@@ -16,6 +14,7 @@ const isLoggedIn = () => {
 const login = (data) => {
     if (data.email && data.password) {
         setLoggedIn(true);
+        setEmail(data.email);
     } 
 }
 
