@@ -62,3 +62,28 @@ This will show the current list that the user has subscribed. This data is store
 This page is expected to show when a user is unable to find a page in the web app. 
 
 
+# Design Process
+- Branding an application started from idealizing what the app will be for. (i.e. University Students)
+- The design of the logo is based on Xendit's website and branding. 
+The logo itself is the reverse logo of Xendit, with tweaks to make it look like a book. 
+- The background on sign in and registration is also the reverse background of Xendit's website. 
+- This decision was made solely for the purpose of creating an application based on what Xendit could produce.
+- Assets such as logos were created using a software called ProCreate
+
+# Technical Decisions
+Given that the project or application building will only take 3-4 days for completion below are the decisions made technically:
+
+- Third-party libraries for other UI components were used to speed up development of features.
+- Tasks for this small project were delegated on a 4-day timeline. 2 days were spent for designing and building
+and 2 days more were spent for linting, testing and refactoring.
+- UI/UX were designed on the fly, there were no researches made for the demographics of the users. 
+- Started to have storybook paired with the web app itself for future development. 
+
+# Areas of Improvement
+- Replace stored data in local storage into databases.
+- Have a dedicated backend service for all requests. 
+- Refined Unit Testing
+- Refined Design
+- Dedicated design system for the app.
+
+
