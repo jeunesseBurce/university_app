@@ -16,7 +16,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import SchoolIcon from '@material-ui/icons/School';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import unilist from '../../assets/unilist.png';
@@ -97,11 +96,6 @@ const ViewLayout = ({ children }) => {
           text: 'All Universities',
           icon: <SchoolIcon color="primary" />,
           path: '/universities'
-        },
-        {
-          text: 'Favorite Universities',
-          icon: <FavoriteIcon color="primary" />,
-          path: '/favorites'
         },
         {
           text: 'Subscriptions',
