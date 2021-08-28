@@ -38,7 +38,7 @@ Both are required to logged in the app.
 
 Note: Registered User's information will be stored in local storage for now. 
 
-# All Universities
+# All Universities User Interface
 
 <img width="2560" alt="Screen Shot 2021-08-28 at 10 26 02 PM" src="https://user-images.githubusercontent.com/8869516/131221256-768e0c50-e87e-44f7-8440-1970141709ef.png">
 
@@ -46,10 +46,16 @@ This will show all the universities list.
 The user can also search by name and country and subscribed in the current list they have selected.
 The user can also sort by country, name and website. 
 
-# Subscriptions
+# Subscriptions User Interface
 
 <img width="2560" alt="Screen Shot 2021-08-28 at 10 25 45 PM" src="https://user-images.githubusercontent.com/8869516/131221212-d2914804-752c-4e76-8f1e-d5481b39e242.png">
 
 This will show the current list that the user has subscribed. This data is stored in the local storage as of now. 
+
+# Not Found Page User Interface
+
+<img width="2299" alt="Screen Shot 2021-08-28 at 10 35 13 PM" src="https://user-images.githubusercontent.com/8869516/131221487-e1b3bfb8-1c63-44bd-aebf-ac113ce0fcfe.png">
+
+This page is expected to show when a user is unable to find a page in the web app. 
 
 
