@@ -82,10 +82,12 @@ and 2 days more were spent for linting, testing and refactoring.
 - Started to have storybook paired with the web app itself for future development. 
 
 # Areas of Improvement
+Given an ample time these are the areas I want to improve on the application: 
+
 - Replace stored data in local storage into databases.
 - Have a dedicated backend service for all requests. 
-- Refined Unit Testing
-- Refined Design
+- Unit Testing.
+- Refined Design.
 - Dedicated design system for the app.
 
 
