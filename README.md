@@ -43,7 +43,8 @@ Note: Registered User's information will be stored in local storage for now.
 
 # All Universities User Interface
 
-<img width="2560" alt="Screen Shot 2021-08-28 at 10 26 02 PM" src="https://user-images.githubusercontent.com/8869516/131221256-768e0c50-e87e-44f7-8440-1970141709ef.png">
+<img width="2560" alt="Screen Shot 2021-08-29 at 1 45 42 AM" src="https://user-images.githubusercontent.com/8869516/131226458-16224a52-d48c-45d3-b9bf-00a5ff475ad0.png">
+
 
 This will show all the universities list. 
 The user can also search by name and country and subscribed in the current list they have selected.
@@ -51,7 +52,8 @@ The user can also sort by country, name and website.
 
 # Subscriptions User Interface
 
-<img width="2560" alt="Screen Shot 2021-08-28 at 10 25 45 PM" src="https://user-images.githubusercontent.com/8869516/131221212-d2914804-752c-4e76-8f1e-d5481b39e242.png">
+<img width="2557" alt="Screen Shot 2021-08-29 at 1 46 34 AM" src="https://user-images.githubusercontent.com/8869516/131226454-c713c8d3-82fd-48bf-b59f-5037129a4b37.png">
+
 
 This will show the current list that the user has subscribed. This data is stored in the local storage as of now. 
 
