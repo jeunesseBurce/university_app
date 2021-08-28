@@ -7,6 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import unilist_logo from '../../assets/unilist_logo.png';
 import Container from '@material-ui/core/Container';
+import isEmail from 'validator/lib/isEmail';
 
 import { Redirect, Link } from "react-router-dom";
 import { login } from '../../services/api';
@@ -174,7 +175,7 @@ const Login = () => {
             password: password
         }
 
-        if (data.email && data.password) {
+        if (isEmail(data.email) === true && data.email && data.password) {
             setTimeout(login(data), 3000);
             setStatus(localStorage.getItem("isLoggedIn"));
             handleClose();
