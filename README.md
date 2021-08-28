@@ -41,6 +41,12 @@ Both are required to logged in the app.
 
 Note: Registered User's information will be stored in local storage for now. 
 
+# Dashboard User Interface
+<img width="2555" alt="Screen Shot 2021-08-29 at 4 02 44 AM" src="https://user-images.githubusercontent.com/8869516/131229682-5c12abc5-3b48-406c-b275-d68a31639384.png">
+
+
+The universities data is grouped by number of universities per country,  to better visualize the ratio of universities in each country. Charts using recharts powered by D3 is also used to better understand the data. 
+
 # All Universities User Interface
 
 <img width="2560" alt="Screen Shot 2021-08-29 at 1 45 42 AM" src="https://user-images.githubusercontent.com/8869516/131226458-16224a52-d48c-45d3-b9bf-00a5ff475ad0.png">
