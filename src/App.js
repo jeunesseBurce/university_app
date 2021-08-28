@@ -6,7 +6,6 @@ import Dashboard from './views/Dashboard';
 import Registration from './views/Registration';
 import NotFound from './views/NotFound';
 import Universities  from './views/Universities';
-import FindUniversities  from './views/FindUniversities';
 import Favorites from './views/Favorites';
 import Subscriptions from './views/Subscriptions';
 import ViewLayout from './views/ViewLayout';
@@ -64,13 +63,6 @@ function App() {
           <Universities />
         </ViewLayout>
         </Route>
-
-        <Route path="/find-universities">
-        <ViewLayout>
-          <FindUniversities />
-        </ViewLayout>
-        </Route>
-
 
         <Route path="/subscriptions">
         <ViewLayout>

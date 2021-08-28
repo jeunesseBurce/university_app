@@ -16,6 +16,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Button from '../../common/components/Button/Button';
 import Modal from '../../common/components/Modal/Modal';
 import DialogContentText from '@material-ui/core/DialogContentText';
+import Container from '@material-ui/core/Container';
 import isEmail from 'validator/lib/isEmail';
 
 const columns = [
@@ -51,9 +52,10 @@ const Title = styled.div`
 `;
 
 const RightPanel = styled.div`
-  justify-content: center;
+  justify-content: flex-end;
   display: flex;
-  margin: 10px;
+  margin: 10px 0px;
+  width: 100%;
 `;
 
 const Footer = styled.div`
@@ -184,7 +186,7 @@ const Universities = () => {
     }, [searchBy, searchKey]);
 
     return (
-        <>           
+        <Container>           
            <Results>
            <Modal 
             open={openModal} 
@@ -261,7 +263,7 @@ const Universities = () => {
                 <CircularProgress color="inherit" />
              </Backdrop>}
            </Results>
-        </>
+        </Container>
     )
 
 }

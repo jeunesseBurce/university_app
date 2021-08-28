@@ -19,7 +19,6 @@ import SchoolIcon from '@material-ui/icons/School';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
-import RoomIcon from '@material-ui/icons/Room';
 import unilist from '../../assets/unilist.png';
 import Button from '../../common/components/Button/Button';
 
@@ -43,7 +42,9 @@ const useStyles = makeStyles((theme) => ({
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
         },
-        backgroundColor: '#0d4c84'
+        backgroundColor: '#0d4c84',
+        justifyContent: 'space-between',
+        display: 'inline-flex'
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -67,6 +68,13 @@ const useStyles = makeStyles((theme) => ({
     },
     active: {
       backgroundColor: '#F4F4F4'
+    },
+    right: {
+      justifyContent: 'flex-end'
+    },
+    toolbarContent: {
+      display: 'inline-flex',
+      justifyContent: 'space-between',
     }
 }));
 
@@ -91,11 +99,6 @@ const ViewLayout = ({ children }) => {
           path: '/universities'
         },
         {
-          text: 'Find a University',
-          icon: <RoomIcon color="primary" />,
-          path: '/find-universities'
-        },
-        {
           text: 'Favorite Universities',
           icon: <FavoriteIcon color="primary" />,
           path: '/favorites'
@@ -107,17 +110,14 @@ const ViewLayout = ({ children }) => {
         },
       ]
 
-
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
     };
 
-
     const handleLogout = () => {
-        logout();
-        setLoggedOut(false);
+      setLoggedOut(true);
+      logout();
     }
-
 
     if (loggedOut) {
         return <Redirect to="/" />
@@ -150,7 +150,7 @@ const ViewLayout = ({ children }) => {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className={classes.toolbarContent}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -160,14 +160,16 @@ const ViewLayout = ({ children }) => {
           >
             <MenuIcon />
           </IconButton>
+
           <div>
             <img src={unilist} width="250px" height="70px" alt="Logo"/>
           </div>
-          <div>
+          <div className={classes.right}>
             {isLoggedIn() ? 
               <Button size="small" onClick={handleLogout} label="Log out" />
             : null}
           </div>
+ 
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">

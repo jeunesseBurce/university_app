@@ -26,7 +26,7 @@ const StyledLink = styled.a`
 
 const useStyles = makeStyles({
   root: {
-    width: '60%',
+    width: '100%',
     margin: '20'
   },
   container: {
@@ -131,7 +131,7 @@ function AdvancedTableHead(props) {
 }
 
 AdvancedTableHead.propTypes = {
-  classes: PropTypes.node,
+  classes: PropTypes.any,
   order: PropTypes.string,
   orderBy: PropTypes.string,
   onRequestSort: PropTypes.func,

@@ -8,6 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 
 const columns = [
@@ -75,7 +76,7 @@ const Subscriptions = () => {
 
 
     return (
-        <div>
+        <Container>
            <Title> Subscribed Universities </Title>
            {universities ? 
            <>
@@ -109,7 +110,7 @@ const Subscriptions = () => {
                 <CircularProgress color="inherit" />
              </Backdrop>}
 
-        </div>
+        </Container>
     )
 
 }

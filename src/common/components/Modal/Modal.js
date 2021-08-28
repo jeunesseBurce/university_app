@@ -34,8 +34,8 @@ Modal.propTypes = {
   dialogLabel: PropTypes.string,
   children: PropTypes.element,
   handleClose: PropTypes.func,
-  secondaryButton: PropTypes.element,
-  primaryButton: PropTypes.element,
+  secondaryButton: PropTypes.node,
+  primaryButton: PropTypes.node,
   open: PropTypes.bool,
   handleClickPrimary: PropTypes.func
 }

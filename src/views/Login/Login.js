@@ -6,6 +6,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import unilist_logo from '../../assets/unilist_logo.png';
+import Container from '@material-ui/core/Container';
 
 import { Redirect, Link } from "react-router-dom";
 import { login } from '../../services/api';
@@ -20,21 +21,28 @@ const useStyles = makeStyles((theme) => ({
 const MainView = styled.div`
     background: rgb(69,96,158);
     background: linear-gradient(313deg, rgba(69,96,158,1) 9%, rgba(32,226,179,1) 72%);
-    height: 100vh;
     display: flex;
-    width: 100%;
-    position: relative;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     margin: 0 auto;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+`;
+
+const StyledContainer = styled(Container)`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    width: 100%;
 `;
 
 const Wrapper = styled.div`
- 
-`;
-
-const Container = styled.div`
     width: ${({ width }) => width};
     height: ${({ height }) => height};
     background-color: #f8f8f8;
@@ -42,8 +50,6 @@ const Container = styled.div`
     border-radius: 10px;
     box-shadow: 0 10px 45px rgba(0,0,0,0.3);
     padding: 10px;
-    display: flex;
-    flex-direction: column;
 `;
 
 const Header = styled.div`
@@ -105,8 +111,6 @@ const LeftPanel = styled.div`
     border-right: 1px solid #ececec;
     padding: 70px;
     height: 305px;
-    display: flex;
-    flex-direction: column;
 `;
 
 const Section = styled.div`
@@ -188,7 +192,7 @@ const Login = () => {
 
     return (
     <MainView>
-        <Wrapper className="flex-container">
+        <StyledContainer>
         <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
             <CircularProgress color="inherit" />
         </Backdrop>
@@ -200,7 +204,7 @@ const Login = () => {
             </TitleSection>
         </LeftPanel>
         <RightContent>
-       <Container width="495px" height="495px" >
+       <Wrapper width="495px" height="495px" >
         <Header>
             <Content>
                 <LeftContent> <Headline> Sign in to your account </Headline> </LeftContent>     
@@ -264,9 +268,9 @@ const Login = () => {
                 />
             </RightContent>
         </Footer>
-        </Container>
+        </Wrapper>
         </RightContent>
-       </Wrapper>
+        </StyledContainer>
     </MainView>
     );
 };
